@@ -9,6 +9,10 @@
 namespace uhc\scenario;
 
 
+use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\block\BlockPlaceEvent;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerMoveEvent;
 use uhc\scenario\scenarios\CutClean;
 use uhc\UHC;
 
@@ -84,5 +88,45 @@ class ScenarioManager
     public function setPlugin(UHC $plugin)
     {
         $this->plugin = $plugin;
+    }
+
+    /**
+     * @param PlayerMoveEvent $event
+     */
+    public function doMove(PlayerMoveEvent $event)
+    {
+        foreach (self::getScenarios() as $scenario){
+            $scenario->onMove($event);
+        }
+    }
+
+    /**
+     * @param BlockBreakEvent $event
+     */
+    public function doBreak(BlockBreakEvent $event)
+    {
+        foreach (self::getScenarios() as $scenario){
+            $scenario->onBreak($event);
+        }
+    }
+
+    /**
+     * @param BlockPlaceEvent $event
+     */
+    public function doPlace(BlockPlaceEvent $event)
+    {
+        foreach (self::getScenarios() as $scenario){
+            $scenario->onPlace($event);
+        }
+    }
+
+    /**
+     * @param PlayerDeathEvent $event
+     */
+    public function doDeath(PlayerDeathEvent $event)
+    {
+        foreach (self::getScenarios() as $scenario){
+            $scenario->onDeath($event);
+        }
     }
 }

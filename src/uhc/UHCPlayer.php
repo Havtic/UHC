@@ -28,6 +28,9 @@ class UHCPlayer extends Player
         parent::__construct($interface, $clientID, $ip, $port);
     }
 
+    /**
+     * @param bool $playing
+     */
     public function onJoin(bool $playing = false)
     {
         $this->setPlaying($playing);
@@ -36,7 +39,7 @@ class UHCPlayer extends Player
     /**
      * @return bool
      */
-    public function isPlaying(): bool
+    public function isPlaying() : bool
     {
         return $this->playing;
     }

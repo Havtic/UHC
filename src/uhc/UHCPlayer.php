@@ -15,7 +15,6 @@ use pocketmine\Player;
 class UHCPlayer extends Player
 {
 
-    private $playing = false;
     /**
      * UHCPlayer constructor.
      * @param SourceInterface $interface
@@ -28,28 +27,13 @@ class UHCPlayer extends Player
         parent::__construct($interface, $clientID, $ip, $port);
     }
 
-    /**
-     * @param bool $playing
-     */
-    public function onJoin(bool $playing = false)
-    {
-        $this->setPlaying($playing);
-    }
 
     /**
      * @return bool
      */
     public function isPlaying() : bool
     {
-        return $this->playing;
-    }
-
-    /**
-     * @param bool $playing
-     */
-    public function setPlaying(bool $playing)
-    {
-        $this->playing = $playing;
+        return UHC::getInstance()::getUHCManager()->isPlaying($this);
     }
 
 }

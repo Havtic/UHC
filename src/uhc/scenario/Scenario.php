@@ -13,6 +13,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use uhc\events\StartUHCEvent;
 
 abstract class Scenario
 {
@@ -21,7 +22,7 @@ abstract class Scenario
      */
     public function onMove(PlayerMoveEvent $event)
     {
-        //TODO
+        //TODO: Implement it
     }
 
     /**
@@ -29,7 +30,7 @@ abstract class Scenario
      */
     public function onBreak(BlockBreakEvent $event)
     {
-        //TODO
+        //TODO: Implement it
     }
 
     /**
@@ -37,7 +38,7 @@ abstract class Scenario
      */
     public function onPlace(BlockPlaceEvent $event)
     {
-        //TODO
+        //TODO: Implement it
     }
 
     /**
@@ -45,7 +46,15 @@ abstract class Scenario
      */
     public function onDeath(PlayerDeathEvent $event)
     {
-        //TODO
+        //TODO: Implement it
+    }
+
+    /**
+     * @param StartUHCEvent $event
+     */
+    public function onStart(StartUHCEvent $event)
+    {
+        //TODO: Implement it
     }
 
     /**

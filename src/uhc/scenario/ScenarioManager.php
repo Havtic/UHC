@@ -13,6 +13,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use uhc\events\StartUHCEvent;
 use uhc\scenario\scenarios\CutClean;
 use uhc\UHC;
 
@@ -127,6 +128,16 @@ class ScenarioManager
     {
         foreach (self::getScenarios() as $scenario){
             $scenario->onDeath($event);
+        }
+    }
+
+    /**
+     * @param StartUHCEvent $event
+     */
+    public function doStart(StartUHCEvent $event)
+    {
+        foreach (self::getScenarios() as $scenario){
+            $scenario->onStart($event);
         }
     }
 }

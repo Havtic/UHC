@@ -14,6 +14,7 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use uhc\events\StartUHCEvent;
 use uhc\UHC;
 
 class ScenarioListener implements Listener
@@ -60,6 +61,14 @@ class ScenarioListener implements Listener
     public function onDeath(PlayerDeathEvent $event)
     {
         UHC::getInstance()::getScenariomanager()->doDeath($event);
+    }
+
+    /**
+     * @param StartUHCEvent $event
+     */
+    public function onStart(StartUHCEvent $event)
+    {
+        UHC::getInstance()::getScenariomanager()->doStart($event);
     }
 
     /**
